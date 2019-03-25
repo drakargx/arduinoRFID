@@ -20,9 +20,28 @@ namespace ArduinoRFID
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Event_OpenSerialPortSettings(object sender, RoutedEventArgs e)
+        {
+            SerialSetup SerialWindow = new SerialSetup();
+            SerialWindow.Show();
+        }
+
+        private async void Event_WriteData(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private async void Event_ReadData(object sender, RoutedEventArgs e)
+        {
+            Task<string> readResponse = SerialManager.Instance.ReadArduinoResponse();
+            await readResponse;
+            SerialMonitor.Text = readResponse.Result;
         }
     }
 }

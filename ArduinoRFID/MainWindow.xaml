@@ -7,6 +7,25 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Button Grid.Column="0" Grid.Row="0" Name="BtnSerialPortSettings" Click="Event_OpenSerialPortSettings">Serial Port</Button>
+        <Button Grid.Column="3" Grid.Row="2" Name="BtnWriteData" Click="Event_WriteData">Write Data</Button>
+        <Button Grid.Column="2" Grid.Row="2" Name="BtnReadData" Click="Event_WriteData">Read Data</Button>
         
+        <TextBlock Grid.Column="0" Grid.Row="3" Name="SerialMonitor" TextWrapping="Wrap"></TextBlock>
+        <Label Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3" Name="LblStatus">Status</Label>
     </Grid>
 </Window>
